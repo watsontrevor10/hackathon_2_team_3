@@ -11,17 +11,21 @@ const CommentForm = (props) => {
     .then(res => {
         props.add(res.data);
       })
-  };
+  }
+
+  const handleBodyChange = (e) => {
+    setBody(e.target.value)
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Field
+      <Form.Input
         id='body'
         name='body'
         label='Body'
         placeholder='Body'
-        value='body'
-        onChange={setBody(e.target.value)}
+        value={body}
+        onChange={handleBodyChange}
       />
       <Button>Submit</Button>
     </Form>

@@ -22,7 +22,7 @@ const Comments = () => {
     ))
   }
   
-  const addComment = (comments) => setComments([ ...comments, comment, ])
+  const addComment = (comment) => setComments([ ...comments, comment, ])
 
   return (
     <Segment>
