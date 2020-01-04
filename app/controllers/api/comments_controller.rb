@@ -1,9 +1,9 @@
 class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_controller, only: [:show, :update, :edit, :destroy]
+  before_action :set_controller, only: [:update, :edit, :destroy]
 
   def index
-    @comments = Comment.all
+    render json: Comment.all
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    if current_user.@comment.update(comment_params)
+    if current_user.comments.update(comment_params)
       render json: @comment
     else
       render json: @comment.errors, status: 422
@@ -25,7 +25,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    current_user.@comment.destroy
+    current_user.comments.destroy
   end
 
   private 

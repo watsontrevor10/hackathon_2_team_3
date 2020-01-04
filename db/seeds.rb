@@ -1,5 +1,5 @@
 10.times do
-Video.create(
+video = Video.create(
   title: Faker::Hacker.adjective,
   duration: Faker::Number.decimal(l_digits: 2),
   genre: Faker::Game.genre,

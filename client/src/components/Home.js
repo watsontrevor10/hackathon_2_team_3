@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Home = () => {
   const [ videos, setVideos ] = useState([])
+
   useEffect( () => {
     axios.get('/api/videos')
     .then( res => {
@@ -13,15 +14,16 @@ const Home = () => {
 
   const renderVideos = () => {
     return videos.map( video => ( 
-        <div key={video.id}>
-          <li >
-            {video.title} 
-            <br/>
-            {video.duration}
-          </li>
-        </div> 
-        )) 
+      <div key={video.id}>
+        <li >
+          {video.title} 
+          <br/>
+          {video.duration}
+        </li>
+      </div> 
+      )) 
   }
+
   return (
     <div>
       { renderVideos() }
