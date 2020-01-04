@@ -21,7 +21,7 @@ class Api::VideosController < ApplicationController
 
   def update
     
-    if current_user.@video.update(video_params)
+    if current_user.videos.update(video_params)
       render json: @video
     else
       render json: video.errors, status: 422
@@ -29,7 +29,7 @@ class Api::VideosController < ApplicationController
   end
 
   def destroy
-    current_user.@video.destroy
+    current_user.videos.destroy
   end
 
   private 

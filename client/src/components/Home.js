@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Header, } from 'semantic-ui-react';
+import axios from 'axios'
 
 const Home = () => {
-  const [ video, setVideo ] = useState([])
-
+  const [ videos, setVideos ] = useState([])
   useEffect( () => {
     axios.get('/api/videos')
-      .then( res => {
-        setVideo(res.data)
+    .then( res => {
+        setVideos(res.data)
       })
   }, [])
 
-  
-
+  const renderVideos = () => {
+    return videos.map( video => ( 
+        <div key={video.id}>
+          <li >
+            {video.title} 
+            <br/>
+            {video.duration}
+          </li>
+        </div> 
+        )) 
+  }
   return (
-    <Header as="h3" textAlign="center">Videos</Header>
-    
+    <div>
+      { renderVideos() }
+    </div>
   )
 }
 
