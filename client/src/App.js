@@ -11,8 +11,10 @@ import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import Video from './components/Video'
 
+
 const App = () => (
   <>
+  
     <Navbar />
     <FetchUser>
       <Container>
@@ -26,6 +28,7 @@ const App = () => (
         </Switch>
       </Container>
     </FetchUser>
+    
   </>
 );
 

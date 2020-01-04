@@ -75,11 +75,6 @@ const Home = () => {
       </Grid>
         )) 
   }
-  return (
-    <div>
-      { renderVideos() }
-    </div>
-  )
-}
+
 
 export default Home;
