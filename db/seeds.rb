@@ -4,7 +4,7 @@ Video.create(
   duration: Faker::Number.decimal(l_digits: 2),
   genre: Faker::Game.genre,
   description: Faker::Hacker.say_something_smart,
-  trailer: "https://youtu.be/XGrYq7OWgdM",
+  trailer: "https://www.youtube.com/embed/XGrYq7OWgdM",
   user_id: 1
 )
 end

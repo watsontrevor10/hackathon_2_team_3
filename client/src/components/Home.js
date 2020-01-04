@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Home = () => {
   const [ videos, setVideos ] = useState([])
+
   useEffect( () => {
     axios.get('/api/videos')
     .then( res => {
@@ -16,7 +17,14 @@ const Home = () => {
       <Grid>
       <Grid.Row columns={3}>
         <Grid.Column>
-        <Image src='https://www.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg' />
+        <iframe 
+          width="560" 
+          height="315" 
+          src={video.trailer}
+          frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
           <Card>
             { video.title }
             <br />
