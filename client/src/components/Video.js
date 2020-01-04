@@ -1,15 +1,32 @@
-import React from 'React'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Link, } from 'react-router-dom';
+import Segment from 'semantic-ui-react'
 
-import React, { Component } from 'react'
+const Videos = (props) => {
+  const [ video, setVideo ] = useState([])
+  
+  useEffect( () => {
+    axios.get(`/api/videos/${video.id}`)
+    .then( res => {
+        setVideo(res.data)
+      })
+  }, [])
+  
+  return (
+    <iframe
+      width="560"
+      height="315"
+      src={video.trailer}
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+      {video.title}
+      {video.duration}
+    </iframe>
 
-export class Video extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+  )
+
 }
 
-export default Video
+ export default Videos;
