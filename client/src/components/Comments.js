@@ -23,23 +23,30 @@ const Comments = () => {
   
   const renderComments = () => {
     return comments.map( comment => (
-      <Card key={comment.id} stackable>
-        <Header as='h4' textAlign='center'>Username</Header>
-        <Divider />
-        {comment.body}
-        <Button onClick={() => deleteComment(comment.id)}>Delete</Button>
-      </Card>
+      <Card.Group itemsPerRow={4} doubling>
+        <Card key={comment.id}>
+          <Card.Content>
+            <Header as='h4' textAlign='center'>Username</Header>
+            <Divider />
+            {comment.body}
+            <Button onClick={() => deleteComment(comment.id)} color='red'>Delete</Button>
+          </Card.Content>
+        </Card>
+      </Card.Group>
     ))
   }
   
   const addComment = (comment) => setComments([ ...comments, comment, ])
 
   return (
-    <Segment>
-      { renderComments() }
-
-      <CommentForm add={addComment} />
-    </Segment>
+    <div>
+      <Segment>
+        { renderComments() }
+      </Segment>
+      <Segment>
+        <CommentForm add={addComment} />
+      </Segment>
+    </div>
   )
 
 }

@@ -12,14 +12,12 @@ class Navbar extends React.Component {
       location
     } = this.props;
 
-  
-
     if (user) {
       return (
         <>
         <Menu.Menu position="right">
           <Image src="https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png" size= 'tiny'/>
-            
+          
           <Menu.Item
             onClick={() => handleLogout(this.props.history)}
           />
